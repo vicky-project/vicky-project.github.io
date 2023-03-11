@@ -40,7 +40,7 @@ $(document).ready(function () {
         "Basic vicky-project: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",
     },
     success: function (data) {
-      alert(data);
+      console.log(data);
     },
   });
 });
