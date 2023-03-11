@@ -13,26 +13,40 @@
 */
 
 // smooth scroll
-$(document).ready(function(){
-    $(".navbar .nav-link").on('click', function(event) {
+$(document).ready(function () {
+  $(".navbar .nav-link").on("click", function (event) {
+    if (this.hash !== "") {
+      event.preventDefault();
 
-        if (this.hash !== "") {
+      var hash = this.hash;
 
-            event.preventDefault();
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top,
+        },
+        700,
+        function () {
+          window.location.hash = hash;
+        }
+      );
+    }
+  });
 
-            var hash = this.hash;
-
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 700, function(){
-                window.location.hash = hash;
-            });
-        } 
-    });
+  $.ajax({
+    url: "https://api.github.com/user",
+    dataType: "json",
+    headers: {
+      Authorization:
+        "Basic vicky-project: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",
+    },
+    success: function (data) {
+      alert(data);
+    },
+  });
 });
 
 // navbar toggle
-$('#nav-toggle').click(function(){
-    $(this).toggleClass('is-active')
-    $('ul.nav').toggleClass('show');
+$("#nav-toggle").click(function () {
+  $(this).toggleClass("is-active");
+  $("ul.nav").toggleClass("show");
 });
