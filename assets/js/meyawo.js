@@ -59,8 +59,9 @@ $(document).ready(function () {
           v.description ?? `No Description`
         }<br><code>${v.clone_url}</code><br><a href="${
           v.html_url
-        }" class="btn btn-sm btn-info rounded">visit</a>
-        ${formatBytes(v.size * 1024)}
+        }" class="btn btn-sm btn-info rounded">visit</a><br> ${formatBytes(
+          v.size * 1024
+        )} | ${v.language}
               </p>
             </div>
           </div>
