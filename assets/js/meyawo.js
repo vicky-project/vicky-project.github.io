@@ -43,9 +43,11 @@ $(document).ready(function () {
         <div class="col-md-6 col-lg-3">
           <div class="service-card">
             <div class="body">
-              <h6 class="title">${v.name}</h6>
-              <p class="subtitle">${v.description}<br>
-               <code>${v.clone_url}</code><br><a href="${v.html_url}" class="btn btn-sm btn-info rounded">visit</a>
+              <h6 class="title">${v.name}</h6><p class="subtitle">${
+          v.description ?? `No Description`
+        }<br><code>${v.clone_url}</code><br><a href="${
+          v.html_url
+        }" class="btn btn-sm btn-info rounded">visit</a>
               </p>
             </div>
           </div>
