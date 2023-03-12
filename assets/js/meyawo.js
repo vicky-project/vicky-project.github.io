@@ -38,10 +38,6 @@ $(document).ready(function () {
       $("#repos-count").text(json.length);
     }
   );
-  // headers: {
-  //   Authorization:
-  //     "Bearer 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",
-  // },
 });
 // navbar toggle
 $("#nav-toggle").click(function () {
