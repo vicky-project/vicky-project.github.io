@@ -123,9 +123,15 @@ $(document).ready(function () {
           v.description ?? `No Description`
         }<br><code>${v.clone_url}</code><br><a href="${
           v.html_url
-        }" class="btn btn-sm btn-info rounded">visit</a><br> ${formatBytes(
-          v.size * 1024
-        )} | ${v.language} | ${timeToWords(v.pushed_at)}
+        }" class="btn btn-sm btn-info rounded"><i class="ti-github"></i></a> ${
+          v.homepage !== null
+            ? `| <a href="` +
+              v.homepage +
+              `" class="btn btn-sm btn-success">Visit</a>`
+            : ``
+        } <br> ${formatBytes(v.size * 1024)} | ${v.language} | ${timeToWords(
+          v.pushed_at
+        )}
               </p>
             </div>
           </div>
