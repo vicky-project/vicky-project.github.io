@@ -38,7 +38,6 @@ $(document).ready(function () {
       $("#repos-count").text(json.length);
       let html;
       $.each(json, (k, v) => {
-        console.log(v);
         html += `
         <div class="col-md-6 col-lg-3">
           <div class="service-card">
