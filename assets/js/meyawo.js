@@ -37,7 +37,7 @@ $(document).ready(function () {
     function (json) {
       $("#repos-count").text(json.length);
       $.each(json, (k, v) => {
-        console.log(k);
+        console.log(k, v);
       });
     }
   );
