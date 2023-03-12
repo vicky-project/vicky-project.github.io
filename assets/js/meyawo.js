@@ -35,7 +35,7 @@ $(document).ready(function () {
   $.getJSON(
     "https://api.github.com/users/vicky-project/repos",
     function (json) {
-      console.log(json.public_repos);
+      alert(json.public_repos);
     }
   );
   // headers: {
