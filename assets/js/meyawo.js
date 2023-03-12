@@ -127,7 +127,7 @@ $(document).ready(function () {
           v.homepage !== null
             ? `| <a href="` +
               v.homepage +
-              `" class="btn btn-sm btn-success">Visit</a>`
+              `" class="btn btn-sm btn-success rounded">Visit</a>`
             : ``
         } <br> ${formatBytes(v.size * 1024)} | ${v.language} | ${timeToWords(
           v.pushed_at
