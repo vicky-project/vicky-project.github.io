@@ -24,6 +24,70 @@ function formatBytes(bytes, decimals = 2) {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
 
+/**
+ * Take an RFC 3339 or ISO 8601 date and returns
+ * the date in human readable form.
+ *
+ * Will return undefined if lacks browser support
+ * or it cannot parse the date.
+ *
+ * @param  {string} time
+ * @param  {object} [lang] Optional language object
+ * @return {string|undefined}
+ * @license MIT
+ * @author Sam Clarke <sam@samclarke.com>
+ */
+function timeToWords(time, lang) {
+  lang = lang || {
+    postfixes: {
+      "<": " ago",
+      ">": " from now",
+    },
+    1000: {
+      singular: "a few moments",
+      plural: "a few moments",
+    },
+    60000: {
+      singular: "about a minute",
+      plural: "# minutes",
+    },
+    3600000: {
+      singular: "about an hour",
+      plural: "# hours",
+    },
+    86400000: {
+      singular: "a day",
+      plural: "# days",
+    },
+    31540000000: {
+      singular: "a year",
+      plural: "# years",
+    },
+  };
+
+  var timespans = [1000, 60000, 3600000, 86400000, 31540000000];
+  var parsedTime = Date.parse(time.replace(/\-00:?00$/, ""));
+
+  if (parsedTime && Date.now) {
+    var timeAgo = parsedTime - Date.now();
+    var diff = Math.abs(timeAgo);
+    var postfix = lang.postfixes[timeAgo < 0 ? "<" : ">"];
+    var timespan = timespans[0];
+
+    for (var i = 1; i < timespans.length; i++) {
+      if (diff > timespans[i]) {
+        timespan = timespans[i];
+      }
+    }
+
+    var n = Math.round(diff / timespan);
+
+    return (
+      lang[timespan][n > 1 ? "plural" : "singular"].replace("#", n) + postfix
+    );
+  }
+}
+
 // smooth scroll
 $(document).ready(function () {
   $(".navbar .nav-link").on("click", function (event) {
@@ -61,7 +125,7 @@ $(document).ready(function () {
           v.html_url
         }" class="btn btn-sm btn-info rounded">visit</a><br> ${formatBytes(
           v.size * 1024
-        )} | ${v.language}
+        )} | ${v.language} | ${timeToWords(v.pushed_at)}
               </p>
             </div>
           </div>
