@@ -32,9 +32,12 @@ $(document).ready(function () {
     }
   });
 
-  $.getJSON("https://api.github.com/users/vicky-project", function (json) {
-    console.log(json);
-  });
+  $.getJSON(
+    "https://api.github.com/users/vicky-project/repos",
+    function (json) {
+      console.log(json.public_repos);
+    }
+  );
   // headers: {
   //   Authorization:
   //     "Bearer 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",
