@@ -37,7 +37,14 @@ $(document).ready(function () {
     dataType: "json",
     headers: {
       Authorization:
-        "Basic vicky-project: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",
+        "Basic " +
+        btoa(
+          "vicky-project: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"
+        ),
+    },
+    data: {
+      username: "",
+      password: "",
     },
     success: function (data) {
       console.log(data);
