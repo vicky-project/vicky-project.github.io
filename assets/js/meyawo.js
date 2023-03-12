@@ -36,9 +36,25 @@ $(document).ready(function () {
     "https://api.github.com/users/vicky-project/repos",
     function (json) {
       $("#repos-count").text(json.length);
+      let html;
       $.each(json, (k, v) => {
-        console.log(k, v);
+        console.log(v);
+        html += `
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+            <div class="body">
+              <h6 class="title">${v.name}</h6>
+              <p class="subtitle">${v.description}<br>
+               <a href="${v.html_url}" class="btn
+               btn-sm btn-info">visit</a> | <a href="${v.clone_url}" class="btn btn-sm
+               btn-success">clone</a> | <a href="${v.downloads_url}" class="btn btn-sm
+               btn-success"><i class="ti-download"></i></a>
+              </p>
+            </div>
+          </div>
+        </div>`;
       });
+      $("#content-repos").html(html);
     }
   );
 });
