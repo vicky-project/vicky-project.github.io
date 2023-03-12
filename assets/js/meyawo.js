@@ -45,10 +45,8 @@ $(document).ready(function () {
             <div class="body">
               <h6 class="title">${v.name}</h6>
               <p class="subtitle">${v.description}<br>
-               <a href="${v.html_url}" class="btn
-               btn-sm btn-info">visit</a> | <a href="${v.clone_url}" class="btn btn-sm
-               btn-success">clone</a> | <a href="${v.downloads_url}" class="btn btn-sm
-               btn-success"><i class="ti-download"></i></a>
+               <a href="${v.html_url}" class="btn btn-sm btn-info rounded">visit</a> | <a href="${v.downloads_url}" class="btn btn-sm btn-success rounded"><i class="ti-download"></i></a><br>
+               <code>${v.clone_url}</code>
               </p>
             </div>
           </div>
