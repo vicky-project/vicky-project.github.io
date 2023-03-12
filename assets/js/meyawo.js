@@ -33,12 +33,12 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "https://api.github.com/user",
-    dataType: "json",
-    headers: {
-      Authorization:
-        "Bearer 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",
-    },
+    url: "https://api.github.com/users/vicky-project/watched",
+    dataType: "jsonp",
+    // headers: {
+    //   Authorization:
+    //     "Bearer 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",
+    // },
     success: function (data) {
       console.log(data);
     },
