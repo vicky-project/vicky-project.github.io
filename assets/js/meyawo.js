@@ -35,7 +35,7 @@ $(document).ready(function () {
   $.getJSON(
     "https://api.github.com/users/vicky-project/watched",
     function (json) {
-      console.log(json);
+      console.log(json.data);
     }
   );
   // headers: {
