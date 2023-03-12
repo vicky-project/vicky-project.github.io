@@ -123,7 +123,7 @@ $(document).ready(function () {
           v.description ?? `No Description`
         }<br><code>${v.clone_url}</code><br><a href="${
           v.html_url
-        }" class="btn btn-sm btn-info rounded"><i class="ti-github"></i></a> ${
+        }" class="btn btn-sm btn-dark rounded"><i class="ti-github"></i></a> ${
           v.homepage !== null
             ? `| <a href="` +
               v.homepage +
