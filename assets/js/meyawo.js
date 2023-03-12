@@ -36,6 +36,9 @@ $(document).ready(function () {
     "https://api.github.com/users/vicky-project/repos",
     function (json) {
       $("#repos-count").text(json.length);
+      $.each(json, (k, v) => {
+        console.log(k);
+      });
     }
   );
 });
