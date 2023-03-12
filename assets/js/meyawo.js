@@ -36,7 +36,7 @@ $(document).ready(function () {
     "https://api.github.com/users/vicky-project/repos",
     function (json) {
       $("#repos-count").text(json.length);
-      let html ="";
+      let html = "";
       $.each(json, (k, v) => {
         html += `
         <div class="col-md-6 col-lg-3">
